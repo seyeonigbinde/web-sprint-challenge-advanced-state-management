@@ -8,11 +8,13 @@ export const initialState = {
 
 export const reducer = (state = initialState, action)=>{
     switch (action.type) {
+
         case(FETCH_START):
           return({
             ...state,
             isLoading: true
           })
+
         case(FETCH_SUCCESS):
         console.log(action.payload)
           return({
@@ -20,18 +22,21 @@ export const reducer = (state = initialState, action)=>{
             smurfs: action.payload,
             isLoading: false
           })
+
         case(FETCH_FAIL):
           return({
             ...state,
             setError: action.payload,
             isLoading: false
           })
+
         case ADD_SMURFS:
             return {
                 ...state,
                 smurfs: [...state.smurfs, action.payload],
                 isLoading: false
             }
+            
         case ERROR_SMURFS:
             return {
                 ...state,
@@ -40,7 +45,7 @@ export const reducer = (state = initialState, action)=>{
             }
         default:
             return state;
-        }
+    }
 };
 
 

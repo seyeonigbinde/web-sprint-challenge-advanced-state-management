@@ -23,14 +23,11 @@ const AddForm = (props) => {
         e.preventDefault();
         props.addSmurfs(state)
         if (state.name === "" || state.position === "" || state.nickname === "") {
-            // setError({
-            //     [e.target.name]: "Name, position and nickname fields are required."
-            //   });
-            // errorMessage = "Name, position and nickname fields are required.";
+         props.errorMessage(errorMessage);
         }
     }
 
-    const errorMessage = "";
+    const errorMessage = "Name, position and nickname fields are required.";
 
     return(<section>
         <h2>Add Smurf</h2>
@@ -64,6 +61,7 @@ const mapStateToProps = state => {
       smurfs: state.smurfs,
       isLoading: state.isLoading,
       error: state.error
+      
     });
   }
   
