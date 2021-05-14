@@ -1,13 +1,7 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURFS, ERROR_SMURFS} from './../actions/index';
 
 export const initialState = {
-    smurfs: [{
-        name: "",
-        nickname:"",
-        position: "",
-        summary:"",
-        id:""
-    }],
+    smurfs: [],
     isLoading: false,
     error: ''
 }

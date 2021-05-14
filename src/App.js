@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
@@ -9,6 +10,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
+  state = {
+    fetchSmurfs: []
+  }
+  componentDidMount() {
+    axios.get('http://localhost:3333/smurfs')
+      .then(res => {
+        const fetchSmurfs = res.data;
+        this.setState({
+          fetchSmurfs
+        });
+        console.log(res);
+      });
+  }
 
   render() {
     return (
@@ -16,7 +30,8 @@ class App extends Component {
         <Header />
 
         <main>
-          <SmurfList/>
+        {/* { this.state.fetchSmurfs.map(smurf => <SmurfList smurf={smurf} key={smurf.id}/>)} */}
+        <SmurfList smurf={this.state.fetchSmurfs}/>
           <AddForm/>
         </main>
       </div>
