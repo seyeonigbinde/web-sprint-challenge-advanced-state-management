@@ -1,4 +1,4 @@
-// import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from './../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURFS} from './../actions/index';
 
 export const initialState = {
     smurfs: [{
@@ -12,7 +12,7 @@ export const initialState = {
     error: ''
 }
 
-const reducer = (state = initialState, action)=>{
+export const reducer = (state = initialState, action)=>{
     switch (action.type) {
         case(FETCH_START):
           return({
@@ -38,9 +38,9 @@ const reducer = (state = initialState, action)=>{
             }
         default:
             return state;
-}
+        }
+};
 
-export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
