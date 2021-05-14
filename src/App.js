@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -26,10 +27,10 @@ class App extends Component {
 const mapStateToProps = state => {
   return({
 
-    fetchSmurfs: state.fetchSmurfs
+    smurfs: state.smurfs
+
   });
 }
-
 export default connect(mapStateToProps)(App);
 
 
