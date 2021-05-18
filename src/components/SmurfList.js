@@ -6,7 +6,7 @@ import Smurf from './Smurf';
    
     const isLoading = false;
 
-    const testSmurf = {
+    const testSmurf =  {
         id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
         name:'Poppa Smurf',
         position:'Village Leader',
@@ -22,7 +22,7 @@ import Smurf from './Smurf';
               {
             props.smurfs.map(smurf=><Smurf smurf={smurf} key={smurf.id}/>)
                 } 
-        {/* <Smurf smurf={testSmurf}/> */}
+
     </div>);
 }
 const mapStateToProps = state => {

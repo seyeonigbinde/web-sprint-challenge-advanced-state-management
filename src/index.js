@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from './reducers';
 
 import "./index.css";
 import App from "./App";
 
-const store = createStore(reducer, applyMiddleware(logger, thunk));
+// const store = createStore(reducer, applyMiddleware(logger, thunk));
+const store = createStore(reducer, compose(applyMiddleware(logger, thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 const { worker } = require('./mocks/browser');
 worker.start();
